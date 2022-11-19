@@ -3,9 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
-
+  production: false,
+  'api-key': 'ea635039-5928-42b3-a25e-241abec9fdc2',
+  baseUrl: 'https://social-network.samuraijs.com/api/1.1',
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

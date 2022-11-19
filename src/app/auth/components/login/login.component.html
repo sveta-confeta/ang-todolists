@@ -1,0 +1,75 @@
+<div class="box">
+  <p>
+    пароль для проверки :<br />
+    _svet_@tut.by<br />
+    101080
+  </p>
+  <div class="container">
+    <h2 class="title">LOGIN</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="form">
+      <!-- Email -->
+      <div class="input-container">
+        <input
+          class="input"
+          type="email"
+          formControlName="email"
+          placeholder="email"
+          required
+          [ngClass]="{
+            inputError: email!.invalid && (email!.dirty || email!.touched),
+            inputSuccess: email!.valid
+          }"
+        />
+        <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
+          <div class="errorText" *ngIf="email!.errors?.['required']">Email is required</div>
+          <div class="errorText" *ngIf="email!.errors?.['pattern']">Email incorrect pattern</div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <input
+          class="input"
+          type="password"
+          placeholder="password"
+          formControlName="password"
+          required
+          [ngClass]="{
+            inputError: password!.invalid && (password!.dirty || password!.touched),
+            inputSuccess: password!.valid
+          }"
+        />
+        <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
+          <div class="errorText" *ngIf="password!.errors?.['required']">Password is required.</div>
+          <div class="errorText" *ngIf="password!.errors?.['minlength']">
+            Name must be at least 3 characters long.
+          </div>
+        </div>
+      </div>
+
+      <!-- Remember me -->
+      <div class="checkbox-container">
+        <input type="checkbox" class="checkbox" formControlName="rememberMe" id="checkbox-id" />
+        <label class="checked" for="checkbox-id">remember me</label>
+      </div>
+      <div class="button-container">
+        <button type="submit">
+          <!--                [disabled]="loginForm.invalid" была проблема что кнопка думала что код
+          инвалидный и дизаблила кнопку-->
+          sign in
+        </button>
+      </div>
+    </form>
+    <ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>

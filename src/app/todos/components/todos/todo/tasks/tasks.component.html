@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <input class="input" type="text" placeholder="add new task" [(ngModel)]="taskTitle" />
+  <button class="btn-plus" (click)="addTaskHandler()">+</button>
+</div>
+<tl-task
+  *ngFor="let task of tasks$ | async"
+  [task]="task"
+  (removeTaskEvent)="removeTask($event)"
+  (changeTaskEvent)="changeTask($event)"
+>
+</tl-task>

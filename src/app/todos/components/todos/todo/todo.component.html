@@ -1,0 +1,24 @@
+<div class="box">
+  <div class="todo-header">
+    <input
+      *ngIf="isTitleEdit; else content"
+      type="text"
+      [(ngModel)]="newTitle"
+      (blur)="editTitleHandler()"
+    />
+
+    <ng-template #content>
+      <b (dblclick)="toggleEditMode()">{{ todo.title }}</b>
+    </ng-template>
+
+    <button class="btn" (click)="removeTodoHandler()">
+      <img class="icon" src="assets/img/delete.png" />
+    </button>
+  </div>
+  <tl-tasks [todoId]="todo.id"></tl-tasks>
+  <tl-todo-filters
+    (changeFilterEvent)="changeFilter($event)"
+    [filter]="todo.filter"
+  ></tl-todo-filters>
+  <tl-todo-footer [createDate]="todo.addedDate"></tl-todo-footer>
+</div>
